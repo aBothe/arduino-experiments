@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arduinoComm", "arduinoComm.csproj", "{A10BDBE0-21AD-4948-8EDD-C5AD59CF113D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A10BDBE0-21AD-4948-8EDD-C5AD59CF113D}.Debug|x86.ActiveCfg = Debug|x86
+		{A10BDBE0-21AD-4948-8EDD-C5AD59CF113D}.Debug|x86.Build.0 = Debug|x86
+		{A10BDBE0-21AD-4948-8EDD-C5AD59CF113D}.Release|x86.ActiveCfg = Release|x86
+		{A10BDBE0-21AD-4948-8EDD-C5AD59CF113D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = arduinoComm.csproj
+	EndGlobalSection
+EndGlobal

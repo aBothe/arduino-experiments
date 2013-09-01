@@ -1,0 +1,55 @@
+<html>
+<head><title>ArduComm</title></head>
+
+<script type="text/javascript" src="res/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="res/farbtastic/farbtastic.js"></script>
+<link rel="stylesheet" href="res/farbtastic/farbtastic.css" type="text/css" />
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#colorpicker').farbtastic(trySendColor);
+		$('.mode').click(function(){
+			$.ajax("?m="+$(this).attr('value'));
+		});
+		updateSensors();
+  });
+  
+  var colToSend="";
+  var timeout=0;
+  function trySendColor(color)
+  {
+	colToSend=color;
+	clearTimeout(timeout);
+	timeout = window.setTimeout("sendColor()", 200);
+  }
+  
+  function sendColor()
+  {
+	$.ajax(("?color="+colToSend.substr(1)));
+  }
+
+	function updateSensors()
+	{
+				$.getJSON('?data=1', function(data) {
+					$('#temp').html(data.temp);
+					$('#brightness').html(data.brightness);
+					window.setTimeout(updateSensors, 2000);
+				});
+	}
+</script>
+
+<style type="text/css">
+body {font-family:sans-serif; font-size:60px;}
+form { margin:0; padding:0; }
+
+.mode { text-decoration:underline; }
+.mode:hover {color:#CC0000;}
+</style>
+<body>
+Temperature: <span id="temp"></span>&deg;C<br />
+Brightness: <span id="brightness"></span>%
+
+<div id="colorpicker"></div>
+
+</body>
+</html>
